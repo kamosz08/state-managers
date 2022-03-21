@@ -7,8 +7,20 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'plugin:@typescript-eslint/recommended',
+    "plugin:prettier/recommended"
   ],
   parser: '@typescript-eslint/parser',
+  settings: {
+    "import/extensions": [".js", ".mjs", ".jsx", ".ts", ".tsx"],
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -20,6 +32,7 @@ module.exports = {
     'react',
     '@typescript-eslint',
     'react-hooks',
+    "prettier"
   ],
   rules: {
     'no-use-before-define': 'off',
@@ -33,11 +46,12 @@ module.exports = {
         tsx: 'never',
       },
     ],
-    'max-len': ['warn', { code: 80 }],
+    'max-len': ['warn', { code: 200 }],
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'no-var': 'error',
+    'global-require': 'warn'
   },
 };

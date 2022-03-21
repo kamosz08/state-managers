@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.css';
+import { Navbar } from './components/Navbar';
 
-function App() {
+export function App() {
   return (
-    <div className="App">
-      setup eslint
+    <div className="w-full h-screen">
+      <Navbar />
     </div>
-
   );
 }
-
-export default App;
