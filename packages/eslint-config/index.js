@@ -52,6 +52,8 @@ module.exports = {
     'import/prefer-default-export': 'off',
     'react/prop-types': 'off',
     'no-var': 'error',
-    'global-require': 'warn'
+    'global-require': 'warn',
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
   },
 };
