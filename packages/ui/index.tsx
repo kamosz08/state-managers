@@ -1,3 +1,12 @@
-import * as React from "react";
+// import * as React from "react";
+// import "./index.css";
 
-export * from "./Button";
+// export * from "./src";
+import { Button } from "./src/Button";
+// import "./index.css";
+import "./output.css";
+
+export {
+  Button,
+  // Header
+};

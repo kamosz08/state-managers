@@ -11,7 +11,6 @@ module.exports = {
             const tsxRule = oneOfRule.oneOf.find(
               rule => rule.test && rule.test.toString().includes('tsx'),
             );
-
             const newIncludePaths = [
               path.resolve(__dirname, '../../packages/ui/'),
             ];
