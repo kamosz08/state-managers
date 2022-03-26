@@ -2,11 +2,8 @@
 // import "./index.css";
 
 // export * from "./src";
-import { Button } from "./src/Button";
+// import { Button } from "./src/Button";
 // import "./index.css";
 import "./output.css";
 
-export {
-  Button,
-  // Header
-};
+export * from "./src";
