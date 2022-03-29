@@ -1,5 +1,7 @@
-export function Profile() {
-  console.log('Profile');
+import { useUserStore } from '../../store/userStore';
 
-  return <>Profile route</>;
+export function Profile() {
+  const userName = useUserStore(state => state.userName);
+
+  return <>Profile route, {userName}</>;
 }

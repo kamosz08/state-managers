@@ -5,12 +5,14 @@ import './App.css';
 import { Home } from './routes/Home/Home';
 import { Profile } from './routes/Profile/Profile';
 import { Settings } from './routes/Settings/Settings';
-import { useUserStore } from './store/userStore';
+import { Feature, useUserStore } from './store/userStore';
 
 export function App() {
   const navigate = useNavigate();
   const getUser = useUserStore(state => state.getUser);
   const status = useUserStore(state => state.status);
+  const userName = useUserStore(state => state.userName);
+  const userFeatures = useUserStore(state => state.features);
 
   useEffect(() => {
     getUser();
@@ -34,10 +36,18 @@ export function App() {
               navigate('/settings', { replace: true });
             },
           },
+          ...Object.keys(userFeatures)
+            .filter(featureKey => userFeatures[featureKey as Feature])
+            .map(featureKey => ({
+              label: featureKey,
+              onClick: () => {
+                navigate(`/${featureKey}`, { replace: true });
+              },
+            })),
         ]}
         rightItems={[
           {
-            label: 'Profile',
+            label: userName,
             onClick: () => {
               navigate('/profile', { replace: true });
             },

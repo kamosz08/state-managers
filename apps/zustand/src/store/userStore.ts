@@ -1,20 +1,21 @@
 import create from 'zustand';
 
-type Feature = 'feature1' | 'feature2';
+export type Feature = 'feature1' | 'feature2';
+type UserFeatures = Record<Feature, boolean>;
 
 type UserState = {
   status: 'idle' | 'loading' | 'success' | 'error';
   userName: string;
-  features: Feature[];
+  features: UserFeatures;
   getUser: () => void;
-  setFeatures: (newFeatures: Feature[]) => void;
+  updateFeature: (feature: Feature, value: boolean) => void;
   setUserName: (newUserName: string) => void;
 };
 
 export const useUserStore = create<UserState>(set => ({
   status: 'idle',
   userName: '',
-  features: [],
+  features: { feature1: false, feature2: false },
   getUser: async () => {
     try {
       const data = await fetch('user.json').then(response => response.json());
@@ -23,8 +24,11 @@ export const useUserStore = create<UserState>(set => ({
       set(state => ({ ...state, status: 'error' }));
     }
   },
-  setFeatures: (newFeatures: Feature[]) =>
-    set(state => ({ ...state, features: newFeatures })),
+  updateFeature: (feature, value) =>
+    set(state => {
+      const newFeatures = { ...state.features, [feature]: value };
+      return { ...state, features: newFeatures };
+    }),
   setUserName: (newUserName: string) =>
     set(state => ({ ...state, userName: newUserName })),
 }));
