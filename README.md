@@ -1,6 +1,6 @@
 # State managers comparison
 
-This repository was created for experimental and learning purposes. I wanted to compare libraries for global state management, what are the benefits of migrating from redux to zustand etc. I also used turborepo for monorepo management. I wanted to create one UI components and use them across every app that uses different state management. For now I have only created example for zustand and redux (with redux toolkit).
+This repository was created for experimental and learning purposes. I wanted to compare libraries for global state management, what are the benefits of migrating from redux to zustand etc. I also used turborepo for monorepo management. I wanted to create one UI components and use them across every app that uses different state management. For now I have created example for zustand, mobx and redux (with redux toolkit).
 
 # App description
 
